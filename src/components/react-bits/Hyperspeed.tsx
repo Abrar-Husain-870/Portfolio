@@ -364,7 +364,9 @@ export default function Hyperspeed({ effectOptions = {
         const options = this.options
         const curve = new THREE.LineCurve3(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, -1))
         const geometry = new THREE.TubeGeometry(curve, 40, 1, 8, false)
-        const instanced = new THREE.InstancedBufferGeometry().copy(geometry)
+        const instanced = new THREE.InstancedBufferGeometry().copy(
+          geometry as any
+        )
         instanced.instanceCount = options.lightPairsPerRoadWay * 2
         const laneWidth = options.roadWidth / options.lanesPerRoad
         const aOffset: number[] = []
@@ -463,7 +465,9 @@ export default function Hyperspeed({ effectOptions = {
       init() {
         const options = this.options
         const geometry = new THREE.PlaneGeometry(1, 1)
-        const instanced = new THREE.InstancedBufferGeometry().copy(geometry)
+        const instanced = new THREE.InstancedBufferGeometry().copy(
+          geometry as any
+        )
         const totalSticks = options.totalSideLightSticks
         instanced.instanceCount = totalSticks
         const stickoffset = options.length / (totalSticks - 1)
@@ -550,7 +554,7 @@ export default function Hyperspeed({ effectOptions = {
     class Road {
       webgl: any; options: any; uTime: any; leftRoadWay: any; rightRoadWay: any; island: any
       constructor(webgl: any, options: any) { this.webgl = webgl; this.options = options; this.uTime = { value: 0 } }
-      createPlane(side: number, width: number, isRoad: boolean) {
+      createPlane(side: number, _width: number, isRoad: boolean) {
         const options = this.options
         const segments = 100
         const geometry = new THREE.PlaneGeometry(isRoad ? options.roadWidth : options.islandWidth, options.length, 20, segments)
@@ -697,6 +701,29 @@ export default function Hyperspeed({ effectOptions = {
         this.onContextMenu = this.onContextMenu.bind(this)
         window.addEventListener('resize', this.onWindowResize.bind(this))
       }
+      init() {
+        // Initialize scene contents
+        this.road.init()
+        this.leftCarLights.init()
+        this.rightCarLights.init()
+        this.leftSticks.init()
+        // Position meshes based on options
+        this.leftCarLights.mesh.position.setX(-(this.options.roadWidth / 2) - (this.options.islandWidth / 2))
+        this.rightCarLights.mesh.position.setX((this.options.roadWidth / 2) + (this.options.islandWidth / 2))
+        this.leftSticks.mesh.position.setX(-(this.options.roadWidth + this.options.islandWidth / 2))
+        // Postprocessing passes
+        this.initPasses()
+        // Events
+        this.container.addEventListener('mousedown', this.onMouseDown)
+        this.container.addEventListener('mouseup', this.onMouseUp)
+        this.container.addEventListener('mouseout', this.onMouseUp)
+        this.container.addEventListener('touchstart', this.onTouchStart, { passive: true } as any)
+        this.container.addEventListener('touchend', this.onTouchEnd, { passive: true } as any)
+        this.container.addEventListener('touchcancel', this.onTouchEnd, { passive: true } as any)
+        this.container.addEventListener('contextmenu', this.onContextMenu)
+        // Start loop
+        this.tick()
+      }
       onWindowResize() {
         const width = this.container.offsetWidth
         const height = this.container.offsetHeight
@@ -713,43 +740,10 @@ export default function Hyperspeed({ effectOptions = {
         this.renderPass.renderToScreen = false
         this.bloomPass.renderToScreen = false
         smaaPass.renderToScreen = true
+        // Add passes to composer
         this.composer.addPass(this.renderPass)
         this.composer.addPass(this.bloomPass)
         this.composer.addPass(smaaPass)
-      }
-      loadAssets() {
-        const assets = this.assets
-        return new Promise((resolve) => {
-          const manager = new THREE.LoadingManager(resolve)
-          const searchImage = new Image()
-          const areaImage = new Image()
-          assets.smaa = {}
-          searchImage.addEventListener('load', function () { assets.smaa.search = this; manager.itemEnd('smaa-search') })
-          areaImage.addEventListener('load', function () { assets.smaa.area = this; manager.itemEnd('smaa-area') })
-          manager.itemStart('smaa-search')
-          manager.itemStart('smaa-area')
-          searchImage.src = SMAAEffect.searchImageDataURL
-          areaImage.src = SMAAEffect.areaImageDataURL
-        })
-      }
-      init() {
-        this.initPasses()
-        const options = this.options
-        this.road.init()
-        this.leftCarLights.init()
-        this.leftCarLights.mesh.position.setX(-options.roadWidth / 2 - options.islandWidth / 2)
-        this.rightCarLights.init()
-        this.rightCarLights.mesh.position.setX(options.roadWidth / 2 + options.islandWidth / 2)
-        this.leftSticks.init()
-        this.leftSticks.mesh.position.setX(-(options.roadWidth + options.islandWidth / 2))
-        this.container.addEventListener('mousedown', this.onMouseDown)
-        this.container.addEventListener('mouseup', this.onMouseUp)
-        this.container.addEventListener('mouseout', this.onMouseUp)
-        this.container.addEventListener('touchstart', this.onTouchStart, { passive: true } as any)
-        this.container.addEventListener('touchend', this.onTouchEnd, { passive: true } as any)
-        this.container.addEventListener('touchcancel', this.onTouchEnd, { passive: true } as any)
-        this.container.addEventListener('contextmenu', this.onContextMenu)
-        this.tick()
       }
       onMouseDown(ev: any) { this.options.onSpeedUp?.(ev); this.fovTarget = this.options.fovSpeedUp; this.speedUpTarget = this.options.speedUp }
       onMouseUp(ev: any) { this.options.onSlowDown?.(ev); this.fovTarget = this.options.fov; this.speedUpTarget = 0 }
@@ -808,26 +802,6 @@ export default function Hyperspeed({ effectOptions = {
     }
 
     const distortion_uniforms = { uDistortionX: { value: new THREE.Vector2(80, 3) }, uDistortionY: { value: new THREE.Vector2(-40, 2.5) } }
-    const distortion_vertex = `
-      #define PI 3.14159265358979
-      uniform vec2 uDistortionX;
-      uniform vec2 uDistortionY;
-      float nsin(float val){
-        return sin(val) * 0.5 + 0.5;
-      }
-      vec3 getDistortion(float progress){
-        progress = clamp(progress, 0., 1.);
-        float xAmp = uDistortionX.r;
-        float xFreq = uDistortionX.g;
-        float yAmp = uDistortionY.r;
-        float yFreq = uDistortionY.g;
-        return vec3( 
-          xAmp * nsin(progress * PI * xFreq - PI / 2.),
-          yAmp * nsin(progress * PI * yFreq - PI / 2.),
-          0.
-        );
-      }
-    `
 
     function resizeRendererToDisplaySize(renderer: any, setSize: (w: number, h: number, u?: boolean) => void) {
       const canvas = renderer.domElement
