@@ -9,7 +9,7 @@ export default function Projects() {
     label: p.tags?.[0] ?? 'Project',
     color: '#060010',
     image: p.image,
-    large: p.title === 'Writify' || p.title === 'Jamā’ah Journal',
+    large: p.id === 'writify' || p.id === 'jamaah-journal',
     repo: p.repo,
     demo: p.demo,
   }))

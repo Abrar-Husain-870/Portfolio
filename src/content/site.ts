@@ -100,8 +100,6 @@ export const projects: Project[] = [
       "Markdown"
     ],
     image: "/projects/sahayak%20ai.png",
-    repo: "#",
-    demo: "#",
     featured: true
   },
   {
@@ -123,26 +121,27 @@ export const projects: Project[] = [
   },
   {
     id: "move-it",
-    title: "Move It",
+    title: "Move It (Landing Page)",
     blurb:
       "Transportation service landing page for movers and packers (furniture and goods). Built as a clean, responsive marketing site.",
     tags: ["HTML", "CSS", "Bootstrap", "Landing Page"],
     image: "/projects/MoveIt.png",
-    repo: "#",
-    demo: "#",
+    repo: "https://github.com/Abrar-Husain-870/Move-It_website",
+    demo: "https://abrar-husain-870.github.io/Move-It_website/",
     featured: false
   },
   {
-    id: "simon-game",
-    title: "Simon Game",
+    id: "ecommerce-store",
+    title: "E‑Commerce Store",
     blurb:
-      "Memory sequence game: the app lights a button, you repeat; each round adds a new button to the sequence. Built with HTML, CSS, and vanilla JavaScript.",
-    tags: ["HTML", "CSS", "JavaScript", "Game"],
-    image: "/projects/simon%20game.png",
-    repo: "#",
-    demo: "#",
+      "Responsive single‑page storefront powered by React Router and Material UI. Browse products from the Fake Store API, view rich product detail pages, and manage a cart with quantity updates and removal. Built with idiomatic React + TypeScript for a fast, accessible UX.",
+    tags: ["React", "TypeScript", "Material UI", "SPA"],
+    image: "/projects/e-commerce.png",
+    repo: "https://github.com/Abrar-Husain-870/E-Commerce-App",
+    demo: "https://e-commerce-app-livid-three.vercel.app/products",
     featured: false
-  }
+  },
+  
 ];
 
 export const contact = {

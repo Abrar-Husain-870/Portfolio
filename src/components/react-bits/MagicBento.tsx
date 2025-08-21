@@ -472,8 +472,8 @@ export default function MagicBento({
                 enableMagnetism={enableMagnetism}
               >
                 {card.image && (
-                  <div className="mb-3 rounded-xl overflow-hidden ring-1 ring-slate-700/40">
-                    <img src={card.image} alt={`${card.title} preview`} className={`w-full ${card.large ? 'h-56 md:h-64 lg:h-72' : 'h-40 md:h-44 lg:h-48'} object-cover object-center`} loading="lazy" />
+                  <div className="mb-2 rounded-xl overflow-hidden ring-1 ring-slate-700/40">
+                    <img src={card.image} alt={`${card.title} preview`} className={`w-full ${card.large ? 'h-56 md:h-64 lg:h-72' : 'h-56 md:h-64 lg:h-72'} object-cover object-center`} loading="lazy" />
                   </div>
                 )}
                 <div className="card__header">
@@ -594,8 +594,8 @@ export default function MagicBento({
               }}
             >
               {card.image && (
-                <div className="mb-3 rounded-xl overflow-hidden ring-1 ring-slate-700/40">
-                  <img src={card.image} alt={`${card.title} preview`} className={`w-full ${card.large ? 'h-56 md:h-64 lg:h-72' : 'h-40 md:h-44 lg:h-48'} object-cover object-center`} loading="lazy" />
+                <div className="mb-2 rounded-xl overflow-hidden ring-1 ring-slate-700/40">
+                  <img src={card.image} alt={`${card.title} preview`} className={`w-full ${card.large ? 'h-56 md:h-64 lg:h-72' : 'h-56 md:h-64 lg:h-72'} object-cover object-center`} loading="lazy" />
                 </div>
               )}
               <div className="card__header">

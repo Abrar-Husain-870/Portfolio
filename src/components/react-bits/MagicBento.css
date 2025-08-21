@@ -24,10 +24,11 @@
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* Keep content stacked without large gaps */
+  justify-content: flex-start;
   position: relative;
-  aspect-ratio: 16/10;
-  min-height: 280px;
+  /* Let height grow with content for clearer images */
+  min-height: 320px;
   width: 100%;
   max-width: 100%;
   padding: 1.25em;
@@ -57,8 +58,10 @@
 }
 
 .card__header {
-  gap: 0.75em;
-  justify-content: space-between;
+  gap: 0.25em;
+  justify-content: flex-start;
+  /* Minimal spacing below tech label row */
+  margin-bottom: 0.1em;
 }
 
 .card__content {
@@ -66,24 +69,25 @@
 }
 
 .card__label {
-  font-size: 16px;
+  font-size: 11px;
+  line-height: 1;
 }
 
 .card__title,
 .card__description {
   --clamp-title: 1;
-  --clamp-desc: 2;
+  --clamp-desc: 3;
 }
 
 .card__title {
   font-weight: 400;
-  font-size: 16px;
-  margin: 0 0 0.25em;
+  font-size: 20px;
+  margin: 0.05em 0 0.25em;
 }
 
 .card__description {
-  font-size: 12px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 1.35;
   opacity: 0.9;
 }
 
@@ -123,7 +127,7 @@
 
   .card {
     width: 100%;
-    min-height: 180px;
+    min-height: 220px;
   }
 
   .card--large {
@@ -136,10 +140,20 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Larger title on larger cards */
+  .card--large .card__title {
+    font-size: 22px;
+  }
+
+  /* Allow an extra line of description on large cards */
+  .card--large .card__description {
+    --clamp-desc: 4;
+  }
+
   .card--large {
     grid-column: span 2;
     grid-row: span 1;
-    min-height: 400px;
+    min-height: 360px;
   }
 }
 
@@ -150,21 +164,22 @@
 
   .card:nth-child(3) {
     grid-column: span 2;
-    grid-row: span 2;
+    grid-row: span 1;
   }
 
   .card:nth-child(4) {
     grid-column: 1/span 2;
-    grid-row: 2/span 2;
+    grid-row: 2/span 1;
   }
 
   .card:nth-child(6) {
-    grid-column: 4;
-    grid-row: 3;
+    /* Let the 6th card flow naturally; avoid pushing it below the section */
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .card--large {
-    min-height: 520px;
+    min-height: 420px;
   }
 }
 
