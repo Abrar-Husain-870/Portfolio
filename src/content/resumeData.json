@@ -1,0 +1,102 @@
+{
+  "basicInfo": {
+    "name": "Syed Abrar Husain",
+    "role": "Fullstack Developer",
+    "tagline": "I build secure, scalable, and user-centric web applications.",
+    "contact": {
+      "email": "husainabrar870@gmail.com",
+      "phone": "+91-9956356747",
+      "location": "Lucknow, Uttar Pradesh",
+      "linkedin": "https://www.linkedin.com/in/abrar-husain-8833072b7/",
+      "github": "https://github.com/Abrar-Husain-870"
+    }
+  },
+
+  "professionalSummary": "Full-Stack Developer skilled in React.js, Node.js, Express.js, and PostgreSQL, with a strong passion for building secure, scalable, and user-centric web applications. Experienced in developing real-world platforms like assignment marketplaces and interactive apps, with a focus on clean UI, performance optimization, and secure authentication. Enthusiastic about solving practical problems, collaborating on impactful projects, and refining software architecture.",
+
+  "education": [
+    {
+      "degree": "Bachelor of Technology in Computer Science",
+      "university": "Integral University, Lucknow",
+      "duration": "Oct 2023 – Sep 2027",
+      "cgpa": "7.9"
+    },
+    {
+      "degree": "Higher Secondary Education",
+      "school": "La Martiniere College, Lucknow",
+      "graduation": "April 2023",
+      "cgpa": "8.3"
+    }
+  ],
+
+  "skills": {
+    "languages": ["Python", "Java", "C/C++", "HTML/CSS", "JavaScript", "SQL"],
+    "frameworks": ["ReactJS", "ExpressJS", "TailwindCSS"],
+    "developerTools": ["VS Code", "Git", "PostgreSQL", "Postman", "GitHub", "Deployment & Hosting"],
+    "technologies": ["Linux", "REST API"],
+    "pythonLibraries": ["NumPy", "Pandas", "Matplotlib", "Seaborn"]
+  },
+
+  "projects": [
+    {
+      "name": "Writify",
+      "description": "A university student assignment platform enabling students to request and writers to deliver assignments securely and efficiently.",
+      "techStack": ["React", "TypeScript", "Node.js", "PostgreSQL", "TailwindCSS"],
+      "achievements": [
+        "Built Google OAuth secure authentication with session management.",
+        "Designed responsive, mobile-first UI with dark mode.",
+        "Implemented JWT + PostgreSQL session persistence handling 200+ DB transactions/week.",
+        "Cut project completion times by up to 8 hours weekly through streamlined assignment workflows."
+      ],
+      "liveLink": "https://writify-app-huxg.vercel.app/login"
+    },
+    {
+      "name": "Jamā’ah Journal",
+      "description": "A multi-faith prayer and reflection tracking PWA serving 100+ daily users with streak analytics and calendar tracking.",
+      "techStack": ["React", "Firebase", "TailwindCSS"],
+      "achievements": [
+        "Engineered privacy controls with visibility toggle and leaderboard system, boosting engagement by 40%",
+        "Shipped fully responsive PWA with offline mode, install-to-device, and push updates.",
+        "Improved mobile retention by 30% with optimized user experience."
+      ],
+      "liveLink": "https://prayer-tracker-tau.vercel.app/"
+    },
+    {
+      "name": "Blockchain Credential Verification (Hackathon @ IIT Kanpur)",
+      "description": "A prototype decentralized system for issuing and verifying credentials securely via blockchain.",
+      "techStack": ["React", "Solidity", "Web3"],
+      "achievements": [
+        "Collaborated with a team of 4 at IIT Kanpur hackathon.",
+        "Built decentralized certificate validation logic.",
+        "Designed user-facing UI for instant certificate verification."
+      ]
+    }
+  ],
+
+  "leadershipExtracurricular": [
+    {
+      "role": "Coordinator, Fiesta Tech Fest",
+      "date": "Feb 2025",
+      "details": [
+        "Coordinated multiple technical events including a Hackathon.",
+        "Boosted turnout by 30% with social media outreach and planning."
+      ]
+    },
+    {
+      "role": "Website Management Team, Annual Fest",
+      "date": "Feb 2025",
+      "details": [
+        "Maintained fest website supporting 300+ student registrations in 3 days.",
+        "Updated event info and optimized user flows."
+      ]
+    },
+    {
+      "role": "Hackathon Participant",
+      "date": "Aug 2024",
+      "details": [
+        "Participated in 12-hour Hackathon at IIT Kanpur.",
+        "Worked on blockchain-based credential verification system."
+      ]
+    }
+  ]
+}

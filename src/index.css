@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Midnight Sapphire Theme */
+    --color-primary: 30 58 138; /* Sapphire Blue #1E3A8A (primary-900) */
+    --color-accent: 6 182 212;  /* Neon Cyan #06B6D4 (accent-500) */
+    --color-background: 10 15 44; /* Deep Navy #0A0F2C */
+    --color-surface: 15 23 42;   /* Slate-800 for surfaces */
+    --color-text: 248 250 252;   /* Pure White #F8FAFC */
+    --color-text-muted: 203 213 225; /* Silver Gray #CBD5E1 */
+  }
+
+  * {
+    @apply border-slate-800;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply text-slate-50 font-sans antialiased;
+    background-color: rgb(var(--color-background)); /* #0A0F2C */
+    background-image: radial-gradient(1200px 600px at 50% -10%, rgba(30,58,138,0.25), rgba(10,15,44,0));
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-600;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep scroll functionality */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar { /* Chrome, Safari */
+    display: none;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-900 hover:bg-primary-800 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-slate-950 shadow-sm hover:shadow-[0_0_0_2px_rgba(6,182,212,0.2)];
+  }
+
+  /* Royal Navy themed variant for hero CTA */
+  .btn-primary-navy {
+    @apply relative overflow-hidden rounded-xl font-semibold px-7 py-3.5 text-white bg-gradient-to-r from-primary-950 to-primary-800 hover:from-primary-900 hover:to-primary-700 border border-primary-700/40 shadow-[0_10px_30px_-10px_rgba(30,58,138,0.7)] ring-1 ring-inset ring-primary-300/10 transition-all duration-200;
+  }
+
+  .btn-primary-navy::before {
+    content: "";
+    @apply absolute inset-[-1px] rounded-[14px] bg-gradient-to-r from-sky-500/0 via-sky-400/20 to-sky-500/0 opacity-0 transition-opacity duration-200 pointer-events-none;
+  }
+
+  .btn-primary-navy:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-secondary {
+    @apply border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-slate-950;
+  }
+
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-900 to-accent-500 bg-clip-text text-transparent;
+  }
+
+  .glass-effect {
+    @apply bg-slate-900/50 backdrop-blur-md border border-slate-800/50;
+  }
+}

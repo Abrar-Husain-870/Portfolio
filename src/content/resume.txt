@@ -1,0 +1,45 @@
+Syed Abrar Husain
+Indira Nagar, Lucknow, Uttar Pradesh 226016
+Phone: +91-9956356747 | Email: husainabrar870@gmail.com | LinkedIn: linkedin.com/in/abrarhusain/ | GitHub: github.com/Abrar-Husain-870
+
+Professional Summary
+Full-Stack Developer skilled in React.js, Node.js, Express.js, and PostgreSQL, with a strong passion for building secure, scalable, and user-centric web applications. Experienced in developing real-world platforms like assignment marketplaces and interactive banking apps, with a focus on clean UI, performance optimization, and secure authentication. Enthusiastic about solving practical problems, collaborating on impactful projects, and continuously refining software architecture and development skills.
+
+Education
+Integral University — Bachelor of Technology in Computer Science (CGPA: 7.9), Lucknow, Uttar Pradesh
+Oct 2023 – Sep 2027
+
+La Martiniere College — Higher Secondary Education (CGPA: 8.3), Lucknow, Uttar Pradesh
+April 2023
+
+Projects
+Writify: University Student Assignment Platform | React, TypeScript, Node.js, PostgreSQL | Live Link — April 2024
+- Developed a secure authentication system with Google OAuth, with session management for 100% verified student logins.
+- Designed a responsive, mobile-friendly UI with React and TailwindCSS, featuring dark mode and theme toggling.
+- Applied JWT-based authentication and PostgreSQL for secure user data management and session persistence, handling 200+ DB transactions/week.
+- Streamlined data pathways for assignment postings, user feedback, and author profiles, reducing student project completion times by up to 8 hours weekly and fostering greater teamwork between students and writers.
+
+Jama'ah Journal: Multi-Faith Prayer & Reflection Tracker | React, Firebase, TailwindCSS | Live Link — August 2025
+- Engineered a scalable web app serving 100+ users for daily tracking of prayers, meditations, or spiritual reflections, supporting multi-faith practices with a dynamic calendar UI and streak analytics.
+- Implemented robust privacy controls and a leaderboard system, enabling visibility toggles and ensuring fair ranking across user segments, increasing user engagement by 40%.
+- Shipped a fully responsive PWA with offline access, install-to-device, and push-update features, resulting in a 30% boost in mobile user retention.
+- Utilised React 18 and Firebase for fast load times and real-time data, supporting secure authentication and efficient database operations.
+
+Technical Skills
+Languages: Python, Java, C/C++, HTML/CSS, JavaScript, SQL
+Developer Tools: VS Code, Git, PostgreSQL, Postman, Deployment & Hosting
+Technologies/Frameworks: Linux, ReactJS, REST API, GitHub, ExpressJS, Tailwind CSS
+Python Libraries: NumPy, Pandas, Matplotlib, Seaborn
+
+Leadership / Extracurricular
+Coordinator, Fiesta — Integral University, Lucknow — Feb 2025
+- Managed and coordinated multiple technical events including a hackathon during the university’s annual fest, ensuring smooth execution from planning to completion.
+- Boosted event turnout by 30% year-over-year through strategic planning and social media outreach.
+
+Website Management Team, Annual Fest — Integral University, Lucknow — Feb 2025
+- Contributed to the maintenance of the fest website, enabling students to view event details and register online.
+- Assisted with updating event information, testing user flows, and resolving minor technical issues to ensure a smooth registration experience.
+- Helped manage the fest website, handling 300+ student registrations over 3 days.
+
+Hackathon Participant — 12-Hour Hackathon at IIT Kanpur — Aug 2024
+- Collaborated with a team of 4 to design and build a decentralised credential verification system using blockchain technology.

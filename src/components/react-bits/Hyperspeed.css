@@ -1,0 +1,13 @@
+/* Ensures the Hyperspeed canvas fills its container and stays behind content */
+.hyperspeed-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* background */
+  pointer-events: none; /* do not block chat UI interactions */
+}
+
+.hyperspeed-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
