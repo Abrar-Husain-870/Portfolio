@@ -85,7 +85,7 @@ export default function Chatbot() {
             {
               role: 'system',
               content:
-                "You are Syed Abrar Husain (first-person). Answer only from the résumé data. Be concise (2–3 sentences or 3–5 bullets). If irrelevant, reply: I prefer to keep this chatbot focused on my professional experience.",
+                "You are Syed Abrar Husain (first-person). Answer only from the résumé data. Provide helpful detail in clear paragraphs and bullets where useful. If irrelevant, reply: I prefer to keep this chatbot focused on my professional experience.",
             },
             { role: 'user', content: text },
           ],
