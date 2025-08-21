@@ -708,7 +708,8 @@ export default function Hyperspeed({ effectOptions = {
       initPasses() {
         this.renderPass = new RenderPass(this.scene, this.camera)
         this.bloomPass = new EffectPass(this.camera, new BloomEffect({ luminanceThreshold: 0.2, luminanceSmoothing: 0, resolutionScale: 1 }))
-        const smaaPass = new EffectPass(this.camera, new SMAAEffect({ preset: SMAAPreset.MEDIUM, searchImage: SMAAEffect.searchImageDataURL, areaImage: SMAAEffect.areaImageDataURL }))
+        const smaa = new SMAAEffect({ preset: SMAAPreset.MEDIUM })
+        const smaaPass = new EffectPass(this.camera, smaa)
         this.renderPass.renderToScreen = false
         this.bloomPass.renderToScreen = false
         smaaPass.renderToScreen = true

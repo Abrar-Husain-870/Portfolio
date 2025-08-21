@@ -2,7 +2,8 @@ declare module 'ogl' {
   export class Renderer {
     constructor(options?: any)
     gl: WebGLRenderingContext & { canvas: HTMLCanvasElement }
-    setSize(width: number, height: number): void
+    dpr: number
+    setSize(width: number, height: number, updateStyles?: boolean): void
     render(options: any): void
   }
   export class Camera {
@@ -31,5 +32,18 @@ declare module 'ogl' {
     r: number
     g: number
     b: number
+  }
+  export class Vec2 {
+    constructor(x?: number, y?: number)
+    x: number
+    y: number
+    set(x: number, y: number): void
+  }
+  export class Vec3 {
+    constructor(x?: number, y?: number, z?: number)
+    x: number
+    y: number
+    z: number
+    set(x: number, y: number, z: number): void
   }
 }

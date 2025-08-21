@@ -1,4 +1,3 @@
-import React from 'react'
 import { ArrowUp, Heart, Github, Linkedin } from 'lucide-react'
 import { contact } from '../../content/site'
 
