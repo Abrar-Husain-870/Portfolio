@@ -41,10 +41,26 @@ function answerFromResume(q: string): string {
 
     const bullet = (s: string) => `• ${s}`
 
+    // Greetings
+    if (/^(hi|hello|hey|hiya|yo)[!.,\s]*$/i.test(q.trim())) {
+      return "Hi, I’m Syed Abrar Husain’s AI assistant. You can ask me about my skills, projects, or experience."
+    }
+
     // Location question
     if (/where.*(live|based)|location|city|hometown/.test(lower)) {
       const loc = basic?.contact?.location
       if (loc) return `I’m based in ${loc}.`
+    }
+
+    // Contact / email queries
+    if (/(email|e-mail|mail id|gmail|contact|reach (you|me)|how (can|do) i contact)/.test(lower)) {
+      const contact = basic?.contact || {}
+      const info: string[] = []
+      if (contact.email) info.push(bullet(`Email: ${contact.email}`))
+      if (contact.linkedin) info.push(bullet(`LinkedIn: ${contact.linkedin}`))
+      if (contact.github) info.push(bullet(`GitHub: ${contact.github}`))
+      if (!info.length) info.push("You can reach me at husainabrar870@gmail.com.")
+      return info.join('\n')
     }
 
     // Specific project: Writify or any project mentioned by name
@@ -86,6 +102,23 @@ function answerFromResume(q: string): string {
       }
     }
 
+    // Education background
+    if (/education|educational background|degree|university|college|cgpa/.test(lower)) {
+      const edu = Array.isArray(resumeData.education) ? resumeData.education : []
+      if (edu.length) {
+        const lines: string[] = ['Education:']
+        for (const e of edu) {
+          const parts: string[] = []
+          if (e.degree) parts.push(`**${e.degree}**`)
+          if (e.university || e.school) parts.push(e.university || e.school)
+          if (e.duration || e.graduation) parts.push(`Duration: ${e.duration || e.graduation}`)
+          if (e.cgpa) parts.push(`CGPA: ${e.cgpa}`)
+          lines.push(parts.join('\n'))
+        }
+        return lines.join('\n\n')
+      }
+    }
+
     // Skills
     if (/skills?|top skills?/.test(lower)) {
       const lines: string[] = []
@@ -98,7 +131,7 @@ function answerFromResume(q: string): string {
     }
 
     // Experience / background
-    if (/experience|background|profile|summary/.test(lower)) {
+    if (/experience|\bprofile\b|summary/.test(lower)) {
       if (profSummary) return profSummary
       return 'Fullstack developer focused on performant, user-centered web apps.'
     }
@@ -106,11 +139,19 @@ function answerFromResume(q: string): string {
 
   // Fallbacks (when JSON is missing or no match)
   const lines: string[] = []
+  // Greetings
+  if (/^(hi|hello|hey|hiya|yo)[!.,\s]*$/i.test(q.trim())) {
+    lines.push("Hi, I’m Syed Abrar Husain’s AI assistant. You can ask me about my skills, projects, or experience.")
+  }
   if (resumeCtx.includes('Writify') && /writify/.test(lower)) {
     lines.push('• Writify: University assignment platform with Google OAuth, JWT, PostgreSQL, and responsive React + Tailwind UI.')
   }
   if (/skills?|top skills?/.test(lower)) {
     lines.push('• Core: React, TypeScript, TailwindCSS, Node/Express, PostgreSQL, Firebase, Next.js')
+  }
+  if (/education|educational background|degree|university|college|cgpa/.test(lower)) {
+    lines.push('Bachelor of Technology in Computer Science — Integral University, Lucknow (Oct 2023 – Sep 2027). CGPA: 7.9')
+    lines.push('Higher Secondary Education — La Martiniere College, Lucknow (April 2023). CGPA: 8.3')
   }
   if (/experience|background|profile/.test(lower)) {
     lines.push('• Fullstack developer focused on performant, user-centered web apps, with projects across auth, analytics, and PWA.')
