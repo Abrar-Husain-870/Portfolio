@@ -148,6 +148,6 @@ export const contact = {
   email: "husainabrar870@gmail.com",
   social: {
     github: "https://github.com/Abrar-Husain-870",
-    linkedin: "https://www.linkedin.com/in/abrar-husain-8833072b7/"
+    linkedin: "https://www.linkedin.com/in/syed-abrar-husain-8833072b7/"
   }
 };

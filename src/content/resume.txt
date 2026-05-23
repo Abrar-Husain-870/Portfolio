@@ -1,6 +1,6 @@
 Syed Abrar Husain
 Indira Nagar, Lucknow, Uttar Pradesh 226016
-Phone: +91-9956356747 | Email: husainabrar870@gmail.com | LinkedIn: linkedin.com/in/abrarhusain/ | GitHub: github.com/Abrar-Husain-870
+Phone: +91-9956356747 | Email: husainabrar870@gmail.com | LinkedIn: linkedin.com/in/syed-abrar-husain-8833072b7/ | GitHub: github.com/Abrar-Husain-870
 
 Professional Summary
 Full-Stack Developer skilled in React.js, Node.js, Express.js, and PostgreSQL, with a strong passion for building secure, scalable, and user-centric web applications. Experienced in developing real-world platforms like assignment marketplaces and interactive banking apps, with a focus on clean UI, performance optimization, and secure authentication. Enthusiastic about solving practical problems, collaborating on impactful projects, and continuously refining software architecture and development skills.
