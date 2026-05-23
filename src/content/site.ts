@@ -79,7 +79,7 @@ export const projects: Project[] = [
     tags: ["React", "Firebase", "TailwindCSS", "PWA", "Analytics"],
     image: "/projects/jamaah%20journal.png",
     repo: "https://github.com/Abrar-Husain-870/PrayerTracker",
-    demo: "https://prayer-tracker-tau.vercel.app/",
+    demo: "https://jamaah-journal-2-0.vercel.app/",
     featured: true
   },
   {
