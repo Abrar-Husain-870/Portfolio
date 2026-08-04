@@ -24,6 +24,4 @@ A modern React + TypeScript + Vite portfolio with a royal white/blue theme, anim
 2. Start dev server: `npm run dev`
 3. Open http://localhost:5173
 
-## License
-MIT
 # Portfolio
