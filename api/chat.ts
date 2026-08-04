@@ -130,8 +130,27 @@ function answerFromResume(q: string): string {
       if (lines.length) return lines.join('\n')
     }
 
-    // Experience / background
-    if (/experience|\bprofile\b|summary/.test(lower)) {
+    // Experience & Internship queries
+    if (/experience|internship|intern|excelr|etrain|work history|job/.test(lower)) {
+      const exp = Array.isArray(resumeData.experience) ? resumeData.experience : []
+      if (exp.length) {
+        const lines: string[] = ['Experience & Internships:']
+        for (const item of exp) {
+          const parts: string[] = []
+          if (item.role && item.company) parts.push(`**${item.role}** at **${item.company}**`)
+          else if (item.role) parts.push(`**${item.role}**`)
+          if (item.duration) parts.push(`Duration: ${item.duration}`)
+          if (Array.isArray(item.highlights) && item.highlights.length) {
+            parts.push(...item.highlights.map((h: string) => bullet(h)))
+          }
+          lines.push(parts.join('\n'))
+        }
+        return lines.join('\n\n')
+      }
+    }
+
+    // Professional Summary / Profile queries
+    if (/\bprofile\b|summary/.test(lower)) {
       if (profSummary) return profSummary
       return 'Fullstack developer focused on performant, user-centered web apps.'
     }
@@ -150,14 +169,15 @@ function answerFromResume(q: string): string {
     lines.push('• Core: React, TypeScript, TailwindCSS, Node/Express, PostgreSQL, Firebase, Next.js')
   }
   if (/education|educational background|degree|university|college|cgpa/.test(lower)) {
-    lines.push('Bachelor of Technology in Computer Science — Integral University, Lucknow (Oct 2023 – Sep 2027). CGPA: 7.9')
+    lines.push('B.Tech in Computer Science — Integral University, Lucknow (Oct. 2023 – Sep. 2027). CGPA: 8.1')
     lines.push('Higher Secondary Education — La Martiniere College, Lucknow (April 2023). CGPA: 8.3')
   }
-  if (/experience|background|profile/.test(lower)) {
-    lines.push('• Fullstack developer focused on performant, user-centered web apps, with projects across auth, analytics, and PWA.')
+  if (/experience|internship|intern|excelr|etrain/.test(lower)) {
+    lines.push('• Full Stack Java Development Intern at ExcelR (July 2026 – Dec 2026)')
+    lines.push('• Python Data Science Intern at ETrain (Jun. 2026 – Jul. 2026)')
   }
   if (/projects?/.test(lower)) {
-    lines.push('• Projects: Writify, Jamā’ah Journal (PWA, Firebase), Sahayak AI (NextAuth + Firestore), Keeper, Move It, Simon Game')
+    lines.push('• Projects: Writify, Jamā’ah Journal (PWA, Firebase), AppFlix (Next.js + Supabase), Keeper, Move It')
   }
   if (/where.*(live|based)|location|city|hometown/.test(lower)) {
     lines.push('I’m based in Lucknow, Uttar Pradesh.')

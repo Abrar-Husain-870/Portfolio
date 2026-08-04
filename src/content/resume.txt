@@ -1,45 +1,52 @@
 Syed Abrar Husain
 Indira Nagar, Lucknow, Uttar Pradesh 226016
-Phone: +91-9956356747 | Email: husainabrar870@gmail.com | LinkedIn: linkedin.com/in/syed-abrar-husain-8833072b7/ | GitHub: github.com/Abrar-Husain-870
+Phone: +91-9956356747 | Email: husainabrar870@gmail.com | LinkedIn: linkedin.com/in/syed-abrar-husain-8833072b7 | GitHub: github.com/Abrar-Husain-870
 
 Professional Summary
-Full-Stack Developer skilled in React.js, Node.js, Express.js, and PostgreSQL, with a strong passion for building secure, scalable, and user-centric web applications. Experienced in developing real-world platforms like assignment marketplaces and interactive banking apps, with a focus on clean UI, performance optimization, and secure authentication. Enthusiastic about solving practical problems, collaborating on impactful projects, and continuously refining software architecture and development skills.
+Full-Stack Developer skilled in React.js, Node.js, Express.js, and PostgreSQL, with a strong passion for building secure, scalable, and user-centric web applications. Experienced in developing real-world platforms like assignment marketplaces and journaling apps, with a focus on clean UI, performance optimization, and secure authentication.
 
 Education
-Integral University — Bachelor of Technology in Computer Science (CGPA: 7.9), Lucknow, Uttar Pradesh
-Oct 2023 – Sep 2027
+Integral University — B.Tech in Computer Science (8.1 CGPA), Lucknow, UP
+Oct. 2023 – Sep. 2027
 
-La Martiniere College — Higher Secondary Education (CGPA: 8.3), Lucknow, Uttar Pradesh
+La Martiniere College — Higher Secondary Education (8.3 CGPA), Lucknow, UP
 April 2023
+
+Experience
+Full Stack Java Development Intern — ExcelR
+July 2026 – Dec 2026
+- Full Stack Java Development Intern in a 5-month industry-oriented internship program covering Java, Spring Boot, REST APIs, SQL, and React
+- Program includes building full-stack applications with OOP principles, database design, and backend API development.
+
+Python Data Science Intern — ETrain
+Jun. 2026 – Jul. 2026
+- Analyzed e-commerce sales data using Python to identify festive-season purchasing trends through data cleaning, exploratory data analysis (EDA), and visualization.
+- Utilized Pandas, NumPy, Matplotlib, and Seaborn to generate business insights while collaborating with a 5-member team to organize datasets, interpret findings, and present results.
 
 Projects
 Writify: University Student Assignment Platform | React, TypeScript, Node.js, PostgreSQL | Live Link — April 2024
-- Developed a secure authentication system with Google OAuth, with session management for 100% verified student logins.
-- Designed a responsive, mobile-friendly UI with React and TailwindCSS, featuring dark mode and theme toggling.
-- Applied JWT-based authentication and PostgreSQL for secure user data management and session persistence, handling 200+ DB transactions/week.
-- Streamlined data pathways for assignment postings, user feedback, and author profiles, reducing student project completion times by up to 8 hours weekly and fostering greater teamwork between students and writers.
+- Developed Google OAuth authentication with secure session management for 100% verified student logins.
+- Implemented JWT authentication and PostgreSQL for secure user management, session persistence, and 200+ database transactions per week.
+- Optimized assignment, feedback, and profile workflows, reducing project completion time by up to 8 hours weekly.
 
-Jama'ah Journal: Multi-Faith Prayer & Reflection Tracker | React, Firebase, TailwindCSS | Live Link — August 2025
-- Engineered a scalable web app serving 100+ users for daily tracking of prayers, meditations, or spiritual reflections, supporting multi-faith practices with a dynamic calendar UI and streak analytics.
-- Implemented robust privacy controls and a leaderboard system, enabling visibility toggles and ensuring fair ranking across user segments, increasing user engagement by 40%.
-- Shipped a fully responsive PWA with offline access, install-to-device, and push-update features, resulting in a 30% boost in mobile user retention.
-- Utilised React 18 and Firebase for fast load times and real-time data, supporting secure authentication and efficient database operations.
+Jamā’ah Journal: Multi-Faith Prayer & Reflection Tracker | React, Firebase, TailwindCSS | Live Link — August 2025
+- Built a scalable React PWA serving 100+ users with prayer tracking, streak analytics, and a dynamic calendar interface.
+- Implemented privacy controls and a visibility-based leaderboard, increasing user engagement by 40%.
+- Developed a responsive PWA with offline support, install-to-device, and update features, improving mobile user retention by 30%.
 
 Technical Skills
 Languages: Python, Java, C/C++, HTML/CSS, JavaScript, SQL
-Developer Tools: VS Code, Git, PostgreSQL, Postman, Deployment & Hosting
+Developer Tools: VS Code, Version Control with Git, PostgreSQL, Postman, Deployment & Hosting
 Technologies/Frameworks: Linux, ReactJS, REST API, GitHub, ExpressJS, Tailwind CSS
-Python Libraries: NumPy, Pandas, Matplotlib, Seaborn
 
 Leadership / Extracurricular
 Coordinator, Fiesta — Integral University, Lucknow — Feb 2025
-- Managed and coordinated multiple technical events including a hackathon during the university’s annual fest, ensuring smooth execution from planning to completion.
-- Boosted event turnout by 30% year-over-year through strategic planning and social media outreach.
+- Coordinated multiple technical events, including a Hackathon, managing planning, execution, and event operations.
+- Increased event participation by 30% through strategic planning and social media outreach.
 
-Website Management Team, Annual Fest — Integral University, Lucknow — Feb 2025
-- Contributed to the maintenance of the fest website, enabling students to view event details and register online.
-- Assisted with updating event information, testing user flows, and resolving minor technical issues to ensure a smooth registration experience.
-- Helped manage the fest website, handling 300+ student registrations over 3 days.
+Website Management Team — Integral University, Lucknow — Feb 2025
+- Maintained the annual fest website by updating event information, testing user workflows, and resolving technical issues.
+- Supported online registrations for 300+ students over a 3-day event.
 
-Hackathon Participant — 12-Hour Hackathon at IIT Kanpur — Aug 2024
-- Collaborated with a team of 4 to design and build a decentralised credential verification system using blockchain technology.
+Hackathon Participant — IIT Kanpur — Aug 2024
+- Collaborated with a team of four to develop a blockchain-based decentralized credential verification system during a 12-hour hackathon.

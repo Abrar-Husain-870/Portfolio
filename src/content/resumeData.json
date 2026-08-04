@@ -6,20 +6,20 @@
     "contact": {
       "email": "husainabrar870@gmail.com",
       "phone": "+91-9956356747",
-      "location": "Lucknow, Uttar Pradesh",
+      "location": "Indira Nagar, Lucknow, Uttar Pradesh 226016",
       "linkedin": "https://www.linkedin.com/in/syed-abrar-husain-8833072b7/",
       "github": "https://github.com/Abrar-Husain-870"
     }
   },
 
-  "professionalSummary": "Full-Stack Developer skilled in React.js, Node.js, Express.js, and PostgreSQL, with a strong passion for building secure, scalable, and user-centric web applications. Experienced in developing real-world platforms like assignment marketplaces and interactive apps, with a focus on clean UI, performance optimization, and secure authentication. Enthusiastic about solving practical problems, collaborating on impactful projects, and refining software architecture.",
+  "professionalSummary": "Full-Stack Developer skilled in React.js, Node.js, Express.js, and PostgreSQL, with a strong passion for building secure, scalable, and user-centric web applications. Experienced in developing real-world platforms like assignment marketplaces and journaling apps, with a focus on clean UI, performance optimization, and secure authentication.",
 
   "education": [
     {
-      "degree": "Bachelor of Technology in Computer Science",
+      "degree": "B.Tech in Computer Science",
       "university": "Integral University, Lucknow",
-      "duration": "Oct 2023 – Sep 2027",
-      "cgpa": "7.9"
+      "duration": "Oct. 2023 – Sep. 2027",
+      "cgpa": "8.1"
     },
     {
       "degree": "Higher Secondary Education",
@@ -29,73 +29,96 @@
     }
   ],
 
+  "experience": [
+    {
+      "role": "Full Stack Java Development Intern",
+      "company": "ExcelR",
+      "duration": "July 2026 – Dec 2026",
+      "highlights": [
+        "Full Stack Java Development Intern in a 5-month industry-oriented internship program covering Java, Spring Boot, REST APIs, SQL, and React.",
+        "Program includes building full-stack applications with OOP principles, database design, and backend API development."
+      ]
+    },
+    {
+      "role": "Python Data Science Intern",
+      "company": "ETrain",
+      "duration": "Jun. 2026 – Jul. 2026",
+      "highlights": [
+        "Analyzed e-commerce sales data using Python to identify festive-season purchasing trends through data cleaning, exploratory data analysis (EDA), and visualization.",
+        "Utilized Pandas, NumPy, Matplotlib, and Seaborn to generate business insights while collaborating with a 5-member team to organize datasets, interpret findings, and present results."
+      ]
+    }
+  ],
+
   "skills": {
     "languages": ["Python", "Java", "C/C++", "HTML/CSS", "JavaScript", "SQL"],
-    "frameworks": ["ReactJS", "ExpressJS", "TailwindCSS"],
-    "developerTools": ["VS Code", "Git", "PostgreSQL", "Postman", "GitHub", "Deployment & Hosting"],
-    "technologies": ["Linux", "REST API"],
+    "developerTools": ["VS Code", "Version Control with Git", "PostgreSQL", "Postman", "Deployment & Hosting"],
+    "technologies": ["Linux", "ReactJS", "REST API", "GitHub", "ExpressJS", "Tailwind CSS"],
     "pythonLibraries": ["NumPy", "Pandas", "Matplotlib", "Seaborn"]
   },
 
   "projects": [
     {
       "name": "Writify",
-      "description": "A university student assignment platform enabling students to request and writers to deliver assignments securely and efficiently.",
+      "description": "University Student Assignment Platform | React, TypeScript, Node.js, PostgreSQL",
       "techStack": ["React", "TypeScript", "Node.js", "PostgreSQL", "TailwindCSS"],
       "achievements": [
-        "Built Google OAuth secure authentication with session management.",
-        "Designed responsive, mobile-first UI with dark mode.",
-        "Implemented JWT + PostgreSQL session persistence handling 200+ DB transactions/week.",
-        "Cut project completion times by up to 8 hours weekly through streamlined assignment workflows."
+        "Developed Google OAuth authentication with secure session management for 100% verified student logins.",
+        "Implemented JWT authentication and PostgreSQL for secure user management, session persistence, and 200+ database transactions per week.",
+        "Optimized assignment, feedback, and profile workflows, reducing project completion time by up to 8 hours weekly."
       ],
       "liveLink": "https://writify-app-huxg.vercel.app/login"
     },
     {
       "name": "Jamā’ah Journal",
-      "description": "A multi-faith prayer and reflection tracking PWA serving 100+ daily users with streak analytics and calendar tracking.",
-      "techStack": ["React", "Firebase", "TailwindCSS"],
+      "description": "Multi-Faith Prayer & Reflection Tracker | React, Firebase, TailwindCSS",
+      "techStack": ["React", "Firebase", "TailwindCSS", "PWA"],
       "achievements": [
-        "Engineered privacy controls with visibility toggle and leaderboard system, boosting engagement by 40%",
-        "Shipped fully responsive PWA with offline mode, install-to-device, and push updates.",
-        "Improved mobile retention by 30% with optimized user experience."
+        "Built a scalable React PWA serving 100+ users with prayer tracking, streak analytics, and a dynamic calendar interface.",
+        "Implemented privacy controls and a visibility-based leaderboard, increasing user engagement by 40%.",
+        "Developed a responsive PWA with offline support, install-to-device, and update features, improving mobile user retention by 30%."
       ],
       "liveLink": "https://jamaah-journal-2-0.vercel.app/"
     },
     {
-      "name": "Blockchain Credential Verification (Hackathon @ IIT Kanpur)",
-      "description": "A prototype decentralized system for issuing and verifying credentials securely via blockchain.",
-      "techStack": ["React", "Solidity", "Web3"],
+      "name": "AppFlix",
+      "description": "University App Marketplace | Next.js, React, TypeScript, Supabase, PostgreSQL",
+      "techStack": ["Next.js", "React", "TypeScript", "JavaScript (ES6+)", "TailwindCSS", "Supabase", "PostgreSQL", "Supabase Auth", "Supabase Storage"],
       "achievements": [
-        "Collaborated with a team of 4 at IIT Kanpur hackathon.",
-        "Built decentralized certificate validation logic.",
-        "Designed user-facing UI for instant certificate verification."
-      ]
+        "A university app marketplace helping students discover useful campus applications.",
+        "Gives student developers a platform to showcase their projects, reach real users, and measure engagement through analytics and community feedback.",
+        "Utilized Supabase Auth, PostgreSQL, and Supabase Storage for secure authentication, database persistence, and asset storage."
+      ],
+      "liveLink": "https://appflix-com.netlify.app/",
+      "repoLink": "https://github.com/Abrar-Husain-870/AppFlix"
     }
   ],
 
   "leadershipExtracurricular": [
     {
-      "role": "Coordinator, Fiesta Tech Fest",
+      "role": "Coordinator, Fiesta",
+      "organization": "Integral University, Lucknow",
       "date": "Feb 2025",
       "details": [
-        "Coordinated multiple technical events including a Hackathon.",
-        "Boosted turnout by 30% with social media outreach and planning."
+        "Coordinated multiple technical events, including a Hackathon, managing planning, execution, and event operations.",
+        "Increased event participation by 30% through strategic planning and social media outreach."
       ]
     },
     {
-      "role": "Website Management Team, Annual Fest",
+      "role": "Website Management Team",
+      "organization": "Integral University, Lucknow",
       "date": "Feb 2025",
       "details": [
-        "Maintained fest website supporting 300+ student registrations in 3 days.",
-        "Updated event info and optimized user flows."
+        "Maintained the annual fest website by updating event information, testing user workflows, and resolving technical issues.",
+        "Supported online registrations for 300+ students over a 3-day event."
       ]
     },
     {
       "role": "Hackathon Participant",
+      "organization": "IIT Kanpur",
       "date": "Aug 2024",
       "details": [
-        "Participated in 12-hour Hackathon at IIT Kanpur.",
-        "Worked on blockchain-based credential verification system."
+        "Collaborated with a team of four to develop a blockchain-based decentralized credential verification system during a 12-hour hackathon."
       ]
     }
   ]

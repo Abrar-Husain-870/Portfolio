@@ -104,13 +104,13 @@ const devChatMock = (geminiApiKey?: string, geminiModel?: string): Plugin => ({
               const model = genAI.getGenerativeModel({ model: (geminiModel || 'gemini-2.0-flash') })
               const prompt = [
                 'Classify the user question into exactly one intent label from this set:',
-                'skills | education | projects | achievements | greeting | summary | other',
+                'skills | education | experience | projects | achievements | greeting | summary | other',
                 'Output ONLY the label, nothing else.',
                 `Question: ${question}`,
               ].join('\n')
               const result = await model.generateContent({ contents: [{ role: 'user', parts: [{ text: prompt }] }] })
               const label = (result?.response?.text?.() || '').trim().toLowerCase()
-              const allowed = ['skills','education','projects','achievements','greeting','summary','other']
+              const allowed = ['skills','education','experience','projects','achievements','greeting','summary','other']
               return (allowed.includes(label) ? (label as any) : null)
             } catch {
               return null
@@ -119,22 +119,24 @@ const devChatMock = (geminiApiKey?: string, geminiModel?: string): Plugin => ({
           const intents = {
             skills: ['skill', 'skills', 'technology', 'technologies', 'tech', 'stack', 'languages', 'frameworks', 'tools', 'libraries'],
             education: ['education', 'educational background', 'academic', 'academics', 'schooling', 'degree', 'university', 'college', 'school', 'cgpa', 'gpa', 'graduation', 'duration'],
-            projects: ['project', 'projects', 'app', 'application', 'built', 'developed', 'writify', 'moveit', 'journal', 'jama'],
+            experience: ['experience', 'intern', 'internship', 'excelr', 'etrain', 'work', 'job', 'employment', 'career'],
+            projects: ['project', 'projects', 'app', 'application', 'built', 'developed', 'writify', 'moveit', 'journal', 'jama', 'appflix'],
             achievements: ['achievement', 'achievements', 'award', 'awards', 'prize', 'hackathon', 'leadership', 'extracurricular'],
             contact: ['email', 'e-mail', 'mail', 'phone', 'mobile', 'contact', 'location', 'city', 'live', 'based', 'linkedin', 'github', 'address'],
-            summary: ['summary', 'background', 'who are you', 'experience'],
+            summary: ['summary', 'background', 'who are you'],
           }
           const scoreFor = (bucket: string[]) => bucket.reduce((s, w) => s + (t.includes(w) ? 1 : 0), 0)
           const baseScores: Record<string, number> = {
             skills: scoreFor(intents.skills),
             education: scoreFor(intents.education),
+            experience: scoreFor(intents.experience),
             projects: scoreFor(intents.projects),
             achievements: scoreFor(intents.achievements),
             contact: scoreFor(intents.contact),
             summary: scoreFor(intents.summary),
           }
           // Optional: first-pass Gemini classification to bias scores
-          let classified: 'skills' | 'education' | 'projects' | 'achievements' | 'greeting' | 'summary' | 'other' | null = null
+          let classified: 'skills' | 'education' | 'experience' | 'projects' | 'achievements' | 'greeting' | 'summary' | 'other' | null = null
           try {
             classified = await classifyIntentGemini(raw)
             if (classified === 'greeting') {
@@ -156,13 +158,15 @@ const devChatMock = (geminiApiKey?: string, geminiModel?: string): Plugin => ({
           // Regex backup flags (for obvious matches)
           const rxSkills = /\b(skill|stack|tech|technology|technologies|framework|tools|library|libraries)\b/i.test(raw)
           const rxEdu = /\b(education|educational background|academic|academics|degree|university|college|school|schooling|cgpa|gpa|graduation|study|qualification)\b/i.test(raw)
-          const rxProj = /\b(project|app|application|writify|moveit|journal|jama)\b/i.test(raw)
+          const rxExp = /\b(experience|intern|internship|excelr|etrain|work|job|employment|career)\b/i.test(raw)
+          const rxProj = /\b(project|app|application|writify|moveit|journal|jama|appflix)\b/i.test(raw)
           const rxAch = /\b(achievement|award|prize|hackathon|leadership|extracurricular)\b/i.test(raw)
           const rxContact = /\b(email|e-mail|mail|phone|mobile|contact|location|city|live|based|linkedin|github|address)\b/i.test(raw)
-          const rxSum = /\b(who are you|about yourself|background|summary|experience)\b/i.test(raw)
+          const rxSum = /\b(who are you|about yourself|background|summary)\b/i.test(raw)
 
           if (rxSkills) baseScores.skills += 2
           if (rxEdu) baseScores.education += 2
+          if (rxExp) baseScores.experience += 2
           // Strong phrase handling to disambiguate from generic "background"
           if (/\beducational background\b/i.test(raw) || /\bacademics?\b/i.test(raw)) {
             baseScores.education += 2
@@ -225,6 +229,17 @@ const devChatMock = (geminiApiKey?: string, geminiModel?: string): Plugin => ({
             if (ug) parts.push(nice(ug))
             if (hs && hs !== ug) parts.push(nice(hs))
             return parts.join(' ')
+          }
+          const formatExperience = () => {
+            const exp: any[] = Array.isArray(data.experience) ? data.experience : []
+            if (!exp.length) return 'You can find my experience details in my résumé.'
+            const lines = exp.map(item => {
+              const roleComp = `**${item.role}**${item.company ? ` — ${item.company}` : ''}`
+              const dur = item.duration ? ` (${item.duration})` : ''
+              const highlights = Array.isArray(item.highlights) ? `\n${item.highlights.map((h: string) => `• ${h}`).join('\n')}` : ''
+              return `${roleComp}${dur}${highlights}`
+            })
+            return lines.join('\n\n')
           }
           const formatProject = () => {
             const ps: any[] = Array.isArray(data.projects) ? data.projects : []
@@ -314,6 +329,7 @@ const devChatMock = (geminiApiKey?: string, geminiModel?: string): Plugin => ({
 
           if (intent === 'skills' && score > 0) return formatSkills()
           if (intent === 'education' && score > 0) return formatEducation()
+          if (intent === 'experience' && score > 0) return formatExperience()
           if (intent === 'projects' && score > 0) return formatProject()
           if (intent === 'achievements' && score > 0) return formatAchievements()
           if (intent === 'contact' && score > 0) return formatContact()
@@ -321,6 +337,7 @@ const devChatMock = (geminiApiKey?: string, geminiModel?: string): Plugin => ({
 
           // Closest fallback: pick non-empty section in priority order
           const candidates = [
+            { k: 'experience', v: formatExperience() },
             { k: 'education', v: formatEducation() },
             { k: 'skills', v: formatSkills() },
             { k: 'projects', v: formatProject() },
@@ -380,6 +397,7 @@ const devChatMock = (geminiApiKey?: string, geminiModel?: string): Plugin => ({
         const sectionHeaders = [
           'Professional Summary',
           'Education',
+          'Experience',
           'Projects',
           'Technical Skills',
           'Leadership / Extracurricular',

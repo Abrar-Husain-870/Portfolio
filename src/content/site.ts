@@ -63,6 +63,27 @@ export type Project = {
 export const projects: Project[] = [
   // Featured
   {
+    id: "appflix",
+    title: "AppFlix",
+    blurb:
+      "A university app marketplace that helps students discover useful campus applications while giving student developers a platform to showcase their projects, reach real users, and measure engagement through analytics and community feedback.",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "TailwindCSS",
+      "Supabase",
+      "PostgreSQL",
+      "Supabase Auth",
+      "Supabase Storage"
+    ],
+    image: "/projects/appflix.png",
+    repo: "https://github.com/Abrar-Husain-870/AppFlix",
+    demo: "https://appflix-com.netlify.app/",
+    featured: true
+  },
+  {
     id: "writify",
     title: "Writify",
     blurb: "University student assignment platform with Google OAuth, JWT sessions, and PostgreSQL. Responsive React + Tailwind UI with dark mode; streamlined flows for assignments, feedback, and author profiles to save up to 8 hours weekly.",
@@ -80,26 +101,6 @@ export const projects: Project[] = [
     image: "/projects/jamaah%20journal.png",
     repo: "https://github.com/Abrar-Husain-870/PrayerTracker",
     demo: "https://jamaah-journal-2-0.vercel.app/",
-    featured: true
-  },
-  {
-    id: "sahayak-ai",
-    title: "Sahayak AI",
-    blurb: "AI Teaching Assistant that generates weekly lesson plans, visual aids, and differentiated worksheets from textbook images. NextAuth-secured flows with Firestore history for reliable, repeatable results.",
-    tags: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "NextAuth",
-      "Firebase",
-      "Firestore",
-      "Genkit",
-      "Google AI",
-      "Radix UI",
-      "Markdown"
-    ],
-    image: "/projects/sahayak%20ai.png",
     featured: true
   },
   {

@@ -9,20 +9,20 @@ export default function Projects() {
     label: p.tags?.[0] ?? 'Project',
     color: '#060010',
     image: p.image,
-    large: p.id === 'writify' || p.id === 'jamaah-journal',
+    large: p.id === 'writify' || p.id === 'appflix',
     repo: p.repo,
     demo: p.demo,
   }))
 
-  // Arrange to match reference layout: Writify (3rd) and Jamā’ah Journal (4th)
+  // Arrange to match reference layout: AppFlix (3rd) and Writify (4th) as large cards
   const writify = baseItems.find(i => i.title === 'Writify')
-  const jamaah = baseItems.find(i => i.title === 'Jamā’ah Journal')
-  const others = baseItems.filter(i => i.title !== 'Writify' && i.title !== 'Jamā’ah Journal')
+  const appflix = baseItems.find(i => i.title === 'AppFlix')
+  const others = baseItems.filter(i => i.title !== 'Writify' && i.title !== 'AppFlix')
   const bentoItems = [
     ...(others[0] ? [others[0]] : []),
     ...(others[1] ? [others[1]] : []),
+    ...(appflix ? [appflix] : []),
     ...(writify ? [writify] : []),
-    ...(jamaah ? [jamaah] : []),
     ...others.slice(2),
   ]
 
