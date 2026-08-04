@@ -34,11 +34,11 @@ export default function Projects() {
         <Particles
           className="w-full h-full"
           particleColors={["#ffffff"]}
-          particleCount={600}
+          particleCount={typeof window !== 'undefined' && window.innerWidth < 768 ? 30 : 80}
           particleSpread={10}
           speed={0.12}
-          particleBaseSize={160}
-          moveParticlesOnHover={true}
+          particleBaseSize={120}
+          moveParticlesOnHover={typeof window !== 'undefined' && window.innerWidth >= 768}
           particleHoverFactor={1.2}
           alphaParticles={false}
           disableRotation={false}

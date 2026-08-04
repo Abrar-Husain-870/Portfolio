@@ -182,8 +182,17 @@ export default function Aurora(props: AuroraProps) {
     ctn.appendChild(gl.canvas)
 
     let animateId = 0
+    let isInView = true
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isInView = entry.isIntersecting
+    })
+    observer.observe(ctn)
+
     const update = (t: number) => {
       animateId = requestAnimationFrame(update)
+      if (!isInView) return
+
       const { time = t * 0.01, speed = 1.0 } = propsRef.current
       ;(program as any).uniforms.uTime.value = time * (speed ?? 1.0) * 0.1
       ;(program as any).uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0
@@ -200,6 +209,7 @@ export default function Aurora(props: AuroraProps) {
     resize()
 
     return () => {
+      observer.disconnect()
       cancelAnimationFrame(animateId)
       window.removeEventListener("resize", resize)
       if (ctn && gl.canvas.parentNode === ctn) {

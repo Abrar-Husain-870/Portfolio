@@ -251,8 +251,17 @@ export default function Orb({
     window.addEventListener("mouseleave", handleWindowLeave)
 
     let rafId = 0
+    let isInView = true
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isInView = entry.isIntersecting
+    })
+    observer.observe(container)
+
     const update = (t: number) => {
       rafId = requestAnimationFrame(update)
+      if (!isInView) return
+
       const dt = (t - lastTime) * 0.001
       lastTime = t
       program.uniforms.iTime.value = t * 0.001
@@ -272,6 +281,7 @@ export default function Orb({
     rafId = requestAnimationFrame(update)
 
     return () => {
+      observer.disconnect()
       cancelAnimationFrame(rafId)
       window.removeEventListener("resize", resize)
       window.removeEventListener("mousemove", handleMouseMove)

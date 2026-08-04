@@ -188,9 +188,17 @@ export default function Particles({
     let animationFrameId = 0
     let lastTime = performance.now()
     let elapsed = 0
+    let isInView = true
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isInView = entry.isIntersecting
+    })
+    observer.observe(container)
 
     const update = (t: number) => {
       animationFrameId = requestAnimationFrame(update)
+      if (!isInView) return
+
       const delta = t - lastTime
       lastTime = t
       elapsed += delta * speed
@@ -217,6 +225,7 @@ export default function Particles({
     animationFrameId = requestAnimationFrame(update)
 
     return () => {
+      observer.disconnect()
       window.removeEventListener('resize', resize)
       if (moveParticlesOnHover) {
         container.removeEventListener('mousemove', handleMouseMove)
